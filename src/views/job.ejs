@@ -1,0 +1,87 @@
+<div class="job-main">
+    <div class="container">
+    <div class="card mt-3" style="background-color: #FFFFFF;">
+        <img src="/images/INDmoney.jpg" class="card-img-top" alt="..." style="height: 120px;">
+        <div class="card-body">
+          
+          <h2 class="card-title text-center"><span style="color: #D23954;"><%= job.designation %></span> <span class="text-success">Opportunity in <%= job.location %> at</span> <span class="text-primary"><%= job.Cname %> </span></h2>
+          <div class="d-flex justify-content-between" style="width: 200px;">
+          <div class="active-rec mb-2 rounded  p-1 d-flex border border-success" style="width: 8.8rem; height: 2rem; background-color: #FCC300;">
+            <span>Actively Hiring </span>
+             <i class="fa-solid fa-chart-line chart"></i>
+        </div> 
+        <% if(locals.userEmail){ %> 
+        <a class="p-1 rounded ml-2" href="/update-job/<%= job.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a class="p-1 rounded ml-2" onclick="deleteJob('<%= job.id %>')" href="#"><i class="fa-regular fa-file-excel" style="color: #e50606;"></i></a>
+        <% } %>
+      </div>
+          <h5 class="card-title"><%= job.Cname %></h5>
+          <h6 class="card-subtitle mb-2 text-dark fw-light"><%= job.category %> <%= job.designation %></h6>
+          <div class="card-text d-flex align-items-center" ><i class="fa-solid fa-location-dot "></i> <span style="margin-left: 6px;"><%= job.location %></span></div>
+          <div class="card-text">₹<%= job.salary %> lpa</div>
+          <div class="card-text d-flex align-items-center" ><i class="fa-solid fa-hourglass-start"></i> <span style="margin-left: 6px;">Apply By <%= job.date %></span></div>
+          <div class="card-text d-flex align-items-center" ><i class="fa-solid fa-signal"></i> <span style="margin-left: 6px;">Number of Openings <%= job.positions %></span></div>
+          <% if(locals.userEmail){ %>
+          <a class="card-text d-flex align-items-center text-decoration-none" href="/applicants/<%= job.id %>"><i class="fa-solid fa-users text-danger"></i> <span  style="margin-left: 6px; color: #C41444;">Applicants <%= job.applicants %></span></a>
+          <% }else{ %>
+            <a class="card-text d-flex align-items-center text-decoration-none" href="#"><i class="fa-solid fa-users text-danger"></i> <span  style="margin-left: 6px; color: #C41444;">Applicants <%= job.applicants %></span></a>
+          <% } %>
+          <% for(let i=0; i < job.skills.length; i++){ %>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" ><%= job.skills[i] %></div>
+          <% } %>
+          <!-- <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" >CSS</div>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1"> JS</div> -->
+          <div class="mt-1 ">
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Apply Now
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Apply in Less Than a Minute!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="border border-dark rounded p-1" enctype="multipart/form-data" method="post" action="/applyjob">
+                <h4 class="text-center text-secondary">Apply in less than 1 minute</h4>
+                <input type="hidden" class="form-control" id="id" name="id" value="<%= job.id %>">
+            <div class="input-group mb-3 px-3">
+                <span class="input-group-text" id="basic-addon1">Name</span>
+                <input type="text" name="name" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3 px-3">
+                <span class="input-group-text" id="basic-addon1">Email</span>
+                <input type="email" name="email" class="form-control" placeholder="email" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3 px-3">
+                <span class="input-group-text" id="basic-addon1">Contact</span>
+                <input type="text" name="contact" class="form-control" placeholder="+91" aria-label="Username" aria-describedby="basic-addon1">
+              </div>  
+              <div class="input-group mb-3 px-3">
+                <label class="input-group-text" for="inputGroupFile01">Resume</label>
+                <input type="file" class="form-control" id="inputGroupFile01" name="resume">
+              </div>
+              <div class="d-grid gap-2 mb-3 px-3">
+                <button class="btn btn-success" type="submit">Submit</button>
+              </div>
+            </form>  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        </div>
+        <div class="card text-bg-success mb-3 mt-3" style="max-width: 9rem; height: 3rem;">
+            <div class="card-header fs-6">Posted on</div>
+            </div>
+      </div>
+    </div>
+    </div>
+</div>

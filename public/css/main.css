@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    border: 1px solid black;
+    background-color: #0F0D22;
+}
+
+.top-banner{
+ width:100%;
+ height: 92.7vh;
+ background-image: url('/images/h1_hero.jpg');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+padding-top: 15rem;
+padding-left: 10rem;
+}
+
+
+.blue{
+    color: #283959;
+}
+
+.pink{
+    color: #EB2381
+}
+
+.job-main{
+    /* border: 1px solid green; */
+    height: 92.6vh;
+    background-color: #0A0A1D;
+}
+
+.card{
+    background-color: #0F0D22;
+}
+
+.active-rec{
+    justify-content: space-between;
+    align-items: center;
+    background-color: #0D2557;
+    color: white;
+    font-weight: 200;
+}
+
+.active-rec i{
+    color: green;
+}
+

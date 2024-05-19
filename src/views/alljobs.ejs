@@ -1,0 +1,51 @@
+<div class="job-main">
+    <div class="container">
+        <div class="row">
+          <% jobs.forEach((job)=>{ %> 
+    <div class="card col-4 m-4 border border-white" style="width: 18rem;">
+        <div class="card-body">
+          <div class="active-rec mb-2 rounded  p-1 d-flex border border-success" style="width: 8.8rem; height: 2rem;">
+            <span>Actively Hiring </span>
+             <i class="fa-solid fa-chart-line chart"></i>
+        </div>  
+       
+          <h5 class="card-title text-warning"><%= job.Cname %></h5>
+          <h6 class="card-subtitle mb-2 text-light"><%= job.category %> <span class="text-primary"><%= job.designation %></span></h6>
+          <div class="card-text d-flex align-items-center text-light" ><i class="fa-solid fa-location-dot "></i> <span style="margin-left: 4%;"><%= job.location %></span></div>
+          <p class="card-text text-light">₹<%= job.salary %> lpa</p>
+          <% for(let i=0; i < job.skills.length; i++){ %> 
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" ><%= job.skills[i] %></div>
+          <% } %>
+          <!-- <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" >CSS</div>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1"> JS</div> -->
+          
+          <div class="d-grid gap-2">
+            <a href="/detailjobview/<%= job.id %>" class="btn btn-outline-success" type="button">View Details</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+
+      <!-- <div class="card col-4 m-2 border border-white" style="width: 18rem;">
+        <div class="card-body">
+          <div class="active-rec mb-2 rounded  p-1 d-flex border border-success" style="width: 8.8rem; height: 2rem;">
+            <span>Actively Hiring </span>
+             <i class="fa-solid fa-chart-line chart"></i>
+        </div>  
+          <h5 class="card-title text-warning">IND Money</h5>
+          <h6 class="card-subtitle mb-2 text-light">Tech <span class="text-primary">SDE</span></h6>
+          <div class="card-text d-flex align-items-center text-light" ><i class="fa-solid fa-location-dot "></i> <span style="margin-left: 4%;">Gurgaon HR IND Remote</span></div>
+          <p class="card-text text-light">₹14-20lpa</p>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" >HTML</div>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1" >CSS</div>
+          <div class="skill mb-1 d-inline-block border border-primary rounded text-primary p-1"> JS</div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-outline-success" type="button">View Details</button>
+          </div>
+        </div>
+      </div> -->
+      
+     
+    </div>
+</div>
+</div>
